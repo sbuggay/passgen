@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <script src="angular.min.js"></script>
+	<script src="passgen.js"></script>
+	<link href="passgen.css" type = "text/css" rel="stylesheet" />
+</head>
+<body>
+	<div ng-controller="PassGenCtrl" id="content">
+		<b>PassGen</b>
+		<form ng-submit="generatePassword()">
+			<select name="type" ng-model="type" >
+				<option value="" disabled selected>Select one</option>
+				<option value="characters-lower">characters | lower-case</option>
+				<option value="characters-upper">characters | w/ upper-case</option>
+				<option value="characters-mixed">characters | mixed</option>
+				<option value="words">words | lower-case</option>
+				<option value="words-camelcase">words | camel-cased</option>
+				<option value="words-dashes">words | dashes</option>
+			</select>
+			<input type="text" ng-model="num" size="30" required="required" placeholder="number of {{type}}">
+			<input class="btn-primary" type="submit" value="generate" ng-model="button">
+			<!-- <input class="btn-primary" type="submit" value="clipboard" ng-model="button"> -->
+			</br>
+			
+		</form>
+		<div id="password">
+			<input type="text" size="60" value="{{password}}" placeholder="password">
+		</div>
+	</div>
+</body>
+</html>
